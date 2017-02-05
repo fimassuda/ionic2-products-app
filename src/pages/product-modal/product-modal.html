@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons start>
+
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+    <ion-title>Produto</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Nome</ion-label>
+      <ion-input [(ngModel)]="product.nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Preço</ion-label>
+      <ion-input [(ngModel)]="product.preco" type="number"></ion-input>
+    </ion-item>
+     <ion-item>
+      <ion-label floating>Categoria</ion-label>
+      <ion-select [(ngModel)]="product.categoria">
+        <ion-option *ngFor="let c of categories" value="{{c.id}}">{{c.nome}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <button ion-button block (click)="save()">Salvar</button>
+
+  </ion-list>
+
+</ion-content>
